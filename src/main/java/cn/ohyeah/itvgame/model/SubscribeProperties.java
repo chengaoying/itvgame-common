@@ -9,17 +9,64 @@ import java.io.IOException;
  * @version 1.0
  */
 public class SubscribeProperties {
+	/**
+	 * 是否支持订购
+	 */
 	private boolean supportSubscribe;
+	
+	/**
+	 * 订购的货币单位(如：元)
+	 */
 	private String subscribeAmountUnit;
+	
+	/**
+	 * 人民币对订购使用的货币(如：元)的比例
+	 */
 	private int subscribeCashToAmountRatio;
+	
+	/**
+	 * 是否支持积分订购
+	 */
 	private boolean supportSubscribeByPoints;
+	
+	/**
+	 * 积分单位
+	 */
 	private String pointsUnit;
+	
+	/**
+	 * 用户当前有效积分
+	 */
 	private int availablePoints;
+	
+	/**
+	 * 订购使用的货币(如：元)对积分的比例
+	 */
 	private int cashToPointsRatio;
+	
+	/**
+	 * 是否支持充值
+	 */
 	private boolean supportRecharge;
+	
+	/**
+	 * 游戏中消费的货币单位(如：游戏币、元宝等)
+	 */
 	private String expendAmountUnit;
+	
+	/**
+	 * 游戏中消费的货币单位(如：游戏币、元宝等)对订购使用的货币(如：元)的比例
+	 */
 	private int expendCashToAmountRatio;
+	
+	/**
+	 * 用户余额(单位是游戏中消费的货币单位)
+	 */
 	private int balance;
+	
+	/**
+	 * 充值比例(人民币对游戏币的比例)
+	 */
 	private int rechargeRatio;
 	
 	public boolean isSupportRecharge() {

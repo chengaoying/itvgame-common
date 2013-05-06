@@ -48,6 +48,11 @@ public final class ServiceWrapper {
 		offline = paramManager.offline;
 	}
 	
+	/**
+	 * 查询鉴权
+	 * 判断某用户对某包月游戏是否有鉴权(是否已包月)
+	 * @return
+	 */
 	public Authorization queryAuthorization() {
 		if (offline) {
 			result = -1;
@@ -71,6 +76,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询订购属性
+	 * @return
+	 */
 	public SubscribeProperties querySubscribeProperties() {
 		if (offline) {
 			result = -1;
@@ -95,6 +104,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 用户登入
+	 * @return
+	 */
 	public LoginInfo userLogin() {
 		if (offline) {
 			result = -1;
@@ -119,14 +132,31 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询成就描述信息
+	 * @return
+	 */
 	public GameAttainmentDesc[] queryAttainmentDescList() {
 		return queryAttainmentDescList("desc", null, null);
 	}
 	
+	/**
+	 * 查询成就描述信息
+	 * @param start 开始时间
+	 * @param end	结束时间
+	 * @return
+	 */
 	public GameAttainmentDesc[] queryAttainmentDescList(java.util.Date start, java.util.Date end) {
 		return queryAttainmentDescList("desc", start, end);
 	}
 	
+	/**
+	 * 查询成就描述信息
+	 * @param orderCmd 排序方式
+	 * @param start	开始时间
+	 * @param end	结束时间
+	 * @return
+	 */
 	public GameAttainmentDesc[] queryAttainmentDescList(String orderCmd, java.util.Date start, java.util.Date end) {
 		if (offline) {
 			result = -1;
@@ -151,14 +181,37 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询排行列表
+	 * @param offset	开始位置
+	 * @param length	记录条数
+	 * @return
+	 */
 	public GameRanking[] queryRankingList(int offset, int length) {
 		return queryRankingList("desc", null, null, offset, length);
 	}
 	
+	/**
+	 * 查询排行列表
+	 * @param start	开始时间
+	 * @param end	结束时间
+	 * @param offset	开始位置
+	 * @param length	记录条数
+	 * @return
+	 */
 	public GameRanking[] queryRankingList(java.util.Date start, java.util.Date end, int offset, int length) {
 		return queryRankingList("desc", start, end, offset, length);
 	}
 	
+	/**
+	 * 查询排行列表
+	 * @param orderCmd	排序方式
+	 * @param start	开始时间
+	 * @param end	结束时间
+	 * @param offset	开始位置
+	 * @param length	记录条数
+	 * @return
+	 */
 	public GameRanking[] queryRankingList(String orderCmd, java.util.Date start, java.util.Date end, int offset, int length) {
 		if (offline) {
 			result = -1;
@@ -183,14 +236,34 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 读取游戏成就
+	 * @param attainmentId 成就id
+	 * @return
+	 */
 	public GameAttainment readAttainment(int attainmentId) {
 		return readAttainment(attainmentId, "desc", null, null);
 	}
 	
+	/**
+	 * 读取游戏成就
+	 * @param attainmentId	成就id
+	 * @param start	开始时间
+	 * @param end	结束时间
+	 * @return
+	 */
 	public GameAttainment readAttainment(int attainmentId, java.util.Date start, java.util.Date end) {
 		return readAttainment(attainmentId, "desc", start, end);
 	}
 	
+	/**
+	 * 读取游戏成就
+	 * @param attainmentId	成就id
+	 * @param orderCmd	排序方式
+	 * @param start	开始时间
+	 * @param end	结束时间
+	 * @return
+	 */
 	public GameAttainment readAttainment(int attainmentId, String orderCmd, java.util.Date start, java.util.Date end) {
 		if (offline) {
 			result = -1;
@@ -215,6 +288,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 保存游戏成就
+	 * @param attainment
+	 */
 	public void saveAttainment(GameAttainment attainment) {
 		if (offline) {
 			result = -1;
@@ -236,6 +313,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 更新游戏成就
+	 * @param attainment
+	 */
 	public void updateAttainment(GameAttainment attainment) {
 		if (offline) {
 			result = -1;
@@ -257,6 +338,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询用户在某一款游戏上购买的道具列表
+	 * @return
+	 */
 	public OwnProp[] queryOwnPropList() {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -284,6 +369,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询某一款游戏的道具列表
+	 * @return
+	 */
 	public Prop[] queryGamePropList() {
 		if (offline) {
 			result = -1;
@@ -307,10 +396,20 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 同步道具
+	 * @param propId 道具id
+	 * @param count 道具数量
+	 */
 	public void synProps(int propId, int count) {
 		synProps(new int[]{propId}, new int[]{count});
 	}
 	
+	/**
+	 * 同步道具
+	 * @param propIds	道具id列表
+	 * @param counts	道具数量列表
+	 */
 	public void synProps(int[] propIds, int[] counts) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -336,10 +435,20 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 更新道具
+	 * @param propId	道具id
+	 * @param num	道具数量
+	 */
 	public void useProps(int propId, int num) {
 		useProps(new int[]{propId}, new int[]{num});
 	}
 	
+	/**
+	 * 更新道具
+	 * @param propIds	道具id列表
+	 * @param nums	道具数量列表
+	 */
 	public void useProps(int[] propIds, int[] nums) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -365,6 +474,11 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 用户消费
+	 * @param amount
+	 * @param remark
+	 */
 	public void expend(int amount, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -399,7 +513,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
-	/*鼎亿消费道具*/
+	/**
+	 * 鼎亿购买道具
+	 * @param price	价格
+	 * @param propId	道具id
+	 * @param remark	描述
+	 */
 	public void expend(int price, int propId, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -441,6 +560,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 购买道具
+	 * @param propId
+	 * @param propCount
+	 * @param remark
+	 */
 	public void purchaseProp(int propId, int propCount, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -475,6 +600,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询购买记录
+	 * @param offset	开始位置
+	 * @param length	记录条数
+	 * @return
+	 */
 	public PurchaseRecord[] queryPurchaseRecord(int offset, int length) {
 		if (offline) {
 			result = -1;
@@ -499,6 +630,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询记录描述信息
+	 * @return
+	 */
 	public GameRecordDesc[] queryRecordDescList() {
 		if (offline) {
 			result = -1;
@@ -522,6 +657,11 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 读取游戏记录
+	 * @param recordId	记录id
+	 * @return
+	 */
 	public GameRecord readRecord(int recordId) {
 		if (offline) {
 			result = -1;
@@ -548,6 +688,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 保存游戏记录
+	 * @param record
+	 */
 	public void saveRecord(GameRecord record) {
 		if (offline) {
 			result = -1;
@@ -569,6 +713,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 更新游戏记录
+	 * @param record
+	 */
 	public void updateRecord(GameRecord record) {
 		if (offline) {
 			result = -1;
@@ -590,6 +738,9 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询余额
+	 */
 	public void queryBalance() {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -618,6 +769,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询订购记录
+	 * @param offset	开始位置
+	 * @param length	记录条数
+	 * @return
+	 */
 	public SubscribeRecord[] querySubscribeRecord(int offset, int length) {
 		if (offline) {
 			result = -1;
@@ -641,6 +798,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 充值
+	 * @param amount	金额
+	 * @param remark	描述
+	 * @param password	密码
+	 */
 	public void recharge(int amount, String remark, String password) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -684,6 +847,13 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 充值
+	 * @param amount	金额
+	 * @param payType	账单类型(积分支付和账单支付)
+	 * @param remark	描述
+	 * @param password	密码
+	 */
 	public void recharge(int amount, int payType, String remark, String password) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -743,6 +913,11 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 订购(主要是包月游戏的订购)
+	 * @param purchaseId
+	 * @param remark
+	 */
 	public void subscribe(int purchaseId, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -769,6 +944,12 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 订购(主要是包月游戏的订购)
+	 * @param purchaseId
+	 * @param payType 账单类型(积分支付和账单支付)
+	 * @param remark
+	 */
 	public void subscribe(int purchaseId, int payType, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -795,6 +976,11 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 产品订购
+	 * @param subscribeType
+	 * @param remark
+	 */
 	public void subscribeProduct(String subscribeType, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -828,6 +1014,11 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 产品订购
+	 * @param subscribeType
+	 * @param remark
+	 */
 	public void subscribeProduct(String subscribeType, int payType, String remark) {
 		if (engine.isDebugMode()) {
 			result = 0;
@@ -854,6 +1045,10 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 查询系统时间
+	 * @return
+	 */
 	public java.util.Date querySystemTime() {
 		if (offline) {
 			result = -1;
@@ -877,6 +1072,9 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 添加收藏(广东地区)
+	 */
 	public void addFavoritegd() {
 		if (offline) {
 			result = -1;
@@ -920,6 +1118,9 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 *	发送心跳包(掌世界天威地区) 
+	 */
 	public void sendHeartbeatPacket(){
 		if (offline) {
 			result = -1;
@@ -941,14 +1142,28 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 获取服务结果
+	 * @return 0成功， 其他则失败
+	 */
 	public int getServiceResult() {
 		return result;
 	}
 	
+	/**
+	 * 获取调用服务之后的信息
+	 * @return
+	 */
 	public String getServiceMessage() {
 		return message;
 	}
 	
+	/**
+	 * 判断执行某次交互是否成功
+	 * 每次执行一次与服务器的交互都要调用该方法判断
+	 * 操作是否成功，或调用getServiceResult方法是否返回0来判断
+	 * @return
+	 */
 	public boolean isServiceSuccessful() {
 		return result == 0;
 	}

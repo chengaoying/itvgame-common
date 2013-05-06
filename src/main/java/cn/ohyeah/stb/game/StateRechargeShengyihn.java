@@ -16,7 +16,7 @@ import cn.ohyeah.stb.key.KeyCode;
 import cn.ohyeah.stb.key.KeyState;
 
 /**
- * 通用充值界面
+ * 湖南盛翼充值界面
  * @author Administrator
  *
  */
