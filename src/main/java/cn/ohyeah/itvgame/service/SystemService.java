@@ -16,7 +16,7 @@ public final class SystemService extends AbstractHttpService{
 	
 	/**
 	 * 获取系统时间
-	 * @return
+	 * @return time
 	 */
 	public java.util.Date getSystemTime() {
 		try {
@@ -111,7 +111,7 @@ public final class SystemService extends AbstractHttpService{
 	/**
 	 * 掌世界，深圳天威向服务器发送心跳包
 	 * @param userId
-	 * @param productId
+	 * @param productName
 	 */
 	public void sendHeartbeatPacket (String buyUrl, String userId, String productName){
 		try {

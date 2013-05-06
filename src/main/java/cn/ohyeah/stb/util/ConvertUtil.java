@@ -23,7 +23,6 @@ public class ConvertUtil {
 	/**
 	 * 字节数组转换为16进制字符串
 	 * @param srcBytes
-	 * @return
 	 */
 	public static String bytesToHexStr(byte[] srcBytes) {
 		String dest = "";
@@ -39,7 +38,6 @@ public class ConvertUtil {
 	/**
 	 * 16进制字符串转换为字节数组
 	 * @param hexStr
-	 * @return
 	 */
 	public static byte[] hexStrToBytes(String hexStr) {
 		char[] srcChars = hexStr.toCharArray(); 
@@ -58,7 +56,6 @@ public class ConvertUtil {
 	/**
 	 * string转换为GB2312编码的16进制字符串
 	 * @param str
-	 * @return
 	 */
 	public static String strToHexStr(String str) {
 		return strToHexStr(str, "GB2312");
@@ -68,7 +65,6 @@ public class ConvertUtil {
 	 * string转换encoding编码的16进制字符串
 	 * @param str
 	 * @param encoding
-	 * @return
 	 */
 	public static String strToHexStr(String str, String encoding)
 	{
@@ -86,7 +82,6 @@ public class ConvertUtil {
 	/**
 	 * GB2312编码的16进制字符串转换为string
 	 * @param hexStr
-	 * @return
 	 */
 	public static String hexStrToStr(String hexStr) {
 		return hexStrToStr(hexStr, "GB2312");
@@ -96,7 +91,6 @@ public class ConvertUtil {
 	 * encoding编码的16进制字符串转换为string
 	 * @param hexStr
 	 * @param encoding
-	 * @return
 	 */
 	public static String hexStrToStr(String hexStr, String encoding)
 	{
@@ -115,7 +109,6 @@ public class ConvertUtil {
 	/**
 	 * 将大端字节序的byte数组转换为long
 	 * @param bytes
-	 * @return
 	 */
 	public static long toLongBigEndian(byte[] bytes)
 	{
@@ -125,7 +118,6 @@ public class ConvertUtil {
 	/**
 	 * 将小端字节序的byte数组转换为long
 	 * @param bytes
-	 * @return
 	 */
 	public static long toLongLittleEndian(byte[] bytes)
 	{
@@ -136,7 +128,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将byte数组转换为long
 	 * @param bytes
 	 * @param endian
-	 * @return
 	 */
 	public static long toLong(byte[] bytes, int endian)
 	{
@@ -169,7 +160,6 @@ public class ConvertUtil {
 	/**
 	 * 将大端字节序的byte数组转换为int
 	 * @param bytes
-	 * @return
 	 */
 	public static int toIntBigEndian(byte[] bytes)
 	{
@@ -179,7 +169,6 @@ public class ConvertUtil {
 	/**
 	 * 将小端字节序的byte数组转换为int
 	 * @param bytes
-	 * @return
 	 */
 	public static int toIntLittleEndian(byte[] bytes)
 	{
@@ -190,7 +179,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将byte数组转换为int
 	 * @param bytes
 	 * @param endian
-	 * @return
 	 */
 	public static int toInt(byte[] bytes, int endian)
 	{
@@ -215,7 +203,6 @@ public class ConvertUtil {
 	/**
 	 * 将大端字节序的byte数组转换为short
 	 * @param bytes
-	 * @return
 	 */
 	public static short toShortBigEndian(byte[] bytes)
 	{
@@ -225,7 +212,6 @@ public class ConvertUtil {
 	/**
 	 * 将小端字节序的byte数组转换为short
 	 * @param bytes
-	 * @return
 	 */
 	public static short toShortLittleEndian(byte[] bytes)
 	{
@@ -236,7 +222,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将byte数组转换为short
 	 * @param bytes
 	 * @param endian
-	 * @return
 	 */
 	public static short toShort(byte[] bytes, int endian)
 	{
@@ -257,7 +242,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将short转换byte数组
 	 * @param value
 	 * @param endian
-	 * @return
 	 */
 	public static byte[] toBytes(short value, int endian) 
 	{
@@ -276,7 +260,6 @@ public class ConvertUtil {
 	/**
 	 * 将short转换为大端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesBigEndian(short value)
 	{
@@ -286,7 +269,6 @@ public class ConvertUtil {
 	/**
 	 * 将short转换为小端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesLittleEndian(short value)
 	{
@@ -297,7 +279,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将int转换byte数组
 	 * @param value
 	 * @param endian
-	 * @return
 	 */
 	public static byte[] toBytes(int value, int endian)
 	{
@@ -320,7 +301,6 @@ public class ConvertUtil {
 	/**
 	 * 将int转换为大端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesBigEndian(int value)
 	{
@@ -330,7 +310,6 @@ public class ConvertUtil {
 	/**
 	 * 将int转换为小端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesLittleEndian(int value)
 	{
@@ -341,7 +320,6 @@ public class ConvertUtil {
 	 * 按照endian指定的字节序将long转换byte数组
 	 * @param value
 	 * @param endian
-	 * @return
 	 */
 	public static byte[] toBytes(long value, int endian) {
 		byte[] bytes = new byte[8];
@@ -371,7 +349,6 @@ public class ConvertUtil {
 	/**
 	 * 将long转换为小端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesLittleEndian(long value) {
 		return toBytes(value, LittleEndian);
@@ -380,7 +357,6 @@ public class ConvertUtil {
 	/**
 	 * 将long转换为大端字节序的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytesBigEndian(long value) {
 		return toBytes(value, BigEndian);
@@ -390,7 +366,6 @@ public class ConvertUtil {
 	 * 将string转换为encoding编码的byte数组
 	 * @param value
 	 * @param encoding
-	 * @return
 	 */
 	public static byte[] toBytes(String value, String encoding)
 	{
@@ -404,7 +379,6 @@ public class ConvertUtil {
 	/**
 	 * 将string转换为GB2312编码的byte数组
 	 * @param value
-	 * @return
 	 */
 	public static byte[] toBytes(String value)
 	{
@@ -414,7 +388,6 @@ public class ConvertUtil {
 	/**
 	 * 将GB2312编码的byte数组转换为string
 	 * @param value
-	 * @return
 	 */
 	public static String toString(byte[] value) {
 		return toString(value, "GB2312");
@@ -423,7 +396,6 @@ public class ConvertUtil {
 	/**
 	 * 将encoding编码的byte数组转换为string
 	 * @param value
-	 * @return
 	 */
 	public static String toString(byte[] value, String encoding) {
 		try {
@@ -437,7 +409,6 @@ public class ConvertUtil {
 	 * 拆分字符串
 	 * @param original
 	 * @param regex
-	 * @return
 	 */
 	public static String[] split(String original, String regex) {
 		// 取子串的起始位置

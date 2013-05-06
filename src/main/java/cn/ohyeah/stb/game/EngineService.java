@@ -13,21 +13,51 @@ import cn.ohyeah.stb.util.DateUtil;
 
 public final class EngineService {
 	
-	java.util.Date loginTime;	/*用户登录时间*/
-	long loginTimeMillis;		/*登录成功时的机顶盒时间*/
-
+	/**
+	 * 用户登录时间
+	 */
+	java.util.Date loginTime;	
+	
+	/**
+	 * 登录成功时的机顶盒时间
+	 */
+	long loginTimeMillis;		
+	
+	/**
+	 * 鉴权信息
+	 */
 	Authorization auth;
+	
+	/**
+	 * 订购属性
+	 */
 	SubscribeProperties subProps;
-	int availablePoints;		/*可用的积分*/
-	int balance;				/*当前余额*/
+	
+	/**
+	 * 可用积分
+	 */
+	int availablePoints;		
+	
+	/**
+	 * 当前余额
+	 */
+	int balance;				
 	
 	private IEngine engine;
 	private ParamManager pm;
 	
 	private boolean loginSuccessful;
 	private String loginMessage;
-	public boolean isRechrageSuccess;   //有童锁功能，充值成功后下次就不需要输入密码
-	public String passWord;				//充值密码
+	
+	/**
+	 * 有童锁功能，充值成功后下次就不需要输入密码
+	 */
+	public boolean isRechrageSuccess;   
+	
+	/**
+	 * 充值密码
+	 */
+	public String passWord;				
 	
 	public EngineService(IEngine engine) {
 		this.engine = engine;

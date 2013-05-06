@@ -63,7 +63,7 @@ public class ImageUtil {
 	 * @param srcY 处理块在源图片中的Y偏移
 	 * @param w 处理块宽度
 	 * @param h 处理块高度
-	 * @return
+	 * @return image
 	 */
 	public static Image createGray(Image pic, int srcX, int srcY, int w, int h) {
 		int []rgbData = new int[w*h];
@@ -137,7 +137,7 @@ public class ImageUtil {
 	 * @param w 绘制宽度
 	 * @param h 绘制高度
 	 * @param alpha alpha通道值
-	 * @return
+	 * @return image
 	 */
 	public static Image createTransparence(Image pic, 
 			int srcX, int srcY, int w, int h, int alpha) {
@@ -208,7 +208,6 @@ public class ImageUtil {
 	}
 	/**
 	 * 创建亮度变换图像（J2ME中只支持PNG格式图片），内存空间足够时调用此方法
-	 * @param pic
 	 * @param pic 源图片
 	 * @param srcX 绘制块在源图片的X偏移
 	 * @param srcY 绘制块在源图片的Y偏移
@@ -217,7 +216,7 @@ public class ImageUtil {
 	 * @param destX 显示的X坐标
 	 * @param destY 显示的Y坐标
 	 * @param delta
-	 * @return
+	 * @return image
 	 */
 	public static Image createBright(Image pic, 
 			int srcX, int srcY, int w, int h, int destX, int destY, int delta) {
@@ -242,7 +241,7 @@ public class ImageUtil {
 	 * @param h 处理块的高度
 	 * @param desW 变换后的图片宽度
 	 * @param desH 变换后的图片高度
-	 * @return
+	 * @return image
 	 */
 	public static Image zoomImage(Image pic, int srcX, int srcY, int w, int h, int desW, int desH) {  
         // 计算插值表  

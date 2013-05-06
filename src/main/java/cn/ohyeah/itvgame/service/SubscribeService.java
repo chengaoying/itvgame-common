@@ -69,7 +69,6 @@ public final class SubscribeService extends AbstractHttpService{
 	 * @param productId
 	 * @param subscribeType
 	 * @param remark
-	 * @return
 	 * @throws ServiceException
 	 */
 	public void subscribeProduct(String buyURL, int accountId, String accountName, String userToken, 
@@ -222,7 +221,7 @@ public final class SubscribeService extends AbstractHttpService{
 	 * @param gameid
 	 * @param enterURL
 	 * @param stbType
-	 * @return
+	 * @return 返回充值后的余额
 	 */
 	public int rechargeWinsidegd(String buyURL, int accountId, String accountName, String userToken, 
 			int productId, int amount, int ratio, String remark, String checkKey, String spid,

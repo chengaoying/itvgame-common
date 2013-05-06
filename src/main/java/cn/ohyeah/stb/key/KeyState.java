@@ -19,7 +19,7 @@ public class KeyState {
 	
 	/**
 	 * 获取当前按键对应的字符
-	 * @return
+	 * @return char
 	 */
 	public char getKeyChar() {
 		return ch;
@@ -27,7 +27,7 @@ public class KeyState {
 	
 	/**
 	 * 得到当前击键的键值
-	 * @return
+	 * @return  int
 	 */
 	public int getCurrentKeyCode() {
 		return currKeyCode;
@@ -78,7 +78,7 @@ public class KeyState {
 	/**
 	 * 判断按键缓存中是否包含键
 	 * @param keyCode
-	 * @return
+	 * @return boolean
 	 */
 	public boolean contains(int keyCode) {
 		//synchronized (keyLock) {
@@ -88,7 +88,7 @@ public class KeyState {
 	
 	/**
 	 * 判断按键缓存中是否存在任意键值
-	 * @return
+	 * @return boolean
 	 */
 	public boolean containsAnyKey() {
 		//synchronized (keyLock) {
@@ -111,7 +111,7 @@ public class KeyState {
 	 * 如果包含键，则移除该键，并返回true;
 	 * 如果不包含键，直接返回false
 	 * @param keyCode
-	 * @return
+	 * @return boolean
 	 */
 	public boolean containsAndRemove(int keyCode) {
 		//synchronized (keyLock) {
@@ -126,7 +126,7 @@ public class KeyState {
 	/**
 	 * 判断是否连续两次击键
 	 * @param keyCode
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isDoubleClick(int keyCode) {
 		return (currKeyCode==keyCode)&&isDoubleClick;
@@ -135,7 +135,6 @@ public class KeyState {
 	/**
 	 * 判断是否连续三次击键
 	 * @param keyCode
-	 * @return
 	 */
 	public boolean isTripleClick(int keyCode) {
 		return (currKeyCode==keyCode)&&isTripleClick;
@@ -143,7 +142,6 @@ public class KeyState {
 	
 	/**
 	 * 是否支持按键释放事件
-	 * @return
 	 */
 	public boolean isSupportKeyReleased() {
 		return supportKeyReleased;
@@ -152,7 +150,7 @@ public class KeyState {
 	/**
 	 * 判断按键状态中是否由移动事件
 	 * @param keyCode
-	 * @return
+	 * @return boolean
 	 */
 	public boolean containsMoveEvent(int keyCode) {
 		if (contains(keyCode) || (keyCode == currKeyCode && hasPersistMoveEvent)) {
@@ -164,7 +162,7 @@ public class KeyState {
 	/**
 	 * 判断按键状态中是否由移动事件并移除该状态
 	 * @param keyCode
-	 * @return
+	 * @return boolean
 	 */
 	public boolean containsMoveEventAndRemove(int keyCode) {
 		if (containsAndRemove(keyCode) || (keyCode == currKeyCode && hasPersistMoveEvent)) {

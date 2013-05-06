@@ -48,7 +48,7 @@ public abstract class AbstractHttpService {
 	
 	/**
 	 * 判断服务是否成功
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isSuccess() {
 		return result==0;
@@ -56,7 +56,7 @@ public abstract class AbstractHttpService {
 	
 	/**
 	 * 返回错误信息
-	 * @return
+	 * @return Strings
 	 */
 	public String getMessage() {
 		return message;

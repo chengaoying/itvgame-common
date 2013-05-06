@@ -141,7 +141,7 @@ public final class AttainmentService extends AbstractHttpService{
      * @param end
      * @param offset
      * @param length
-     * @return
+     * @return GameRanking
      */
 	public GameRanking[] queryRankingList(int productId, String orderCmd, 
 			java.util.Date start, java.util.Date end, int offset, int length) {
@@ -195,7 +195,7 @@ public final class AttainmentService extends AbstractHttpService{
 	 * 查询成就描述列表
 	 * @param accountId
 	 * @param productId
-	 * @return
+	 * @return GameAttainmentDesc
 	 * @throws ServiceException
 	 */
 	public GameAttainmentDesc[] queryDescList(int accountId, int productId, String orderCmd, 

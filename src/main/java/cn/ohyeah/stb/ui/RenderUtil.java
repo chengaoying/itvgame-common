@@ -9,7 +9,7 @@ public class RenderUtil {
 	/**
 	 * 将颜色灰度变换
 	 * @param color
-	 * @return
+	 * @return color
 	 */
 	public static int turnGray(int color) {
 		int red = (color&0XFF0000)>>16;
@@ -24,7 +24,7 @@ public class RenderUtil {
 	 * 将颜色透明变换
 	 * @param color
 	 * @param alpha
-	 * @return
+	 * @return color
 	 */
 	public static int turnTransparence(int color, int alpha) {
 		return (color&0XFFFFFF)|(alpha<<24);
@@ -34,7 +34,7 @@ public class RenderUtil {
 	 * 将颜色亮度变换
 	 * @param color
 	 * @param delta
-	 * @return
+	 * @return color
 	 */
 	public static int turnBright(int color, int delta, int destColor) {
 		int destRed = (destColor&0XFF0000)>>16;
@@ -83,7 +83,7 @@ public class RenderUtil {
 	 * 将颜色亮度变换
 	 * @param color
 	 * @param delta
-	 * @return
+	 * @return color
 	 */
 	public static int turnBright(int color, int delta) {
 		if (delta > 0) {

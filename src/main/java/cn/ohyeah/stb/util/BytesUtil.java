@@ -115,7 +115,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取byte
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static byte readByte(byte[] src, int index) {
 		return src[index];
@@ -125,7 +124,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取byte[]，先读取int类型的数组长度len，再根据len读取数据
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static byte[] readByteArray(byte[] src, int index) {
 		int len = readInt(src, index);
@@ -136,7 +134,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取short
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static short readShort(byte[] src, int index) {
 		return (short)(((src[index]<<8)&0XFF00)|(src[index+1]&0XFF));
@@ -146,7 +143,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取int
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static int readInt(byte[] src, int index) {
 		return (((int)src[index])<<24)
@@ -159,7 +155,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取long
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static long readLong(byte[] src, int index) {
 		return (((int)src[index])<<56)
@@ -176,7 +171,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取float
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static float readFloat(byte[] src, int index) {
 		return Float.intBitsToFloat(readInt(src, index));
@@ -186,7 +180,6 @@ public class BytesUtil {
 	 * 在src的index位置，读取double
 	 * @param src
 	 * @param index
-	 * @return
 	 */
 	public static double readDouble(byte[] src, int index) {
 		return Double.longBitsToDouble(readLong(src, index));
@@ -197,7 +190,6 @@ public class BytesUtil {
 	 * @param src
 	 * @param index
 	 * @param len
-	 * @return
 	 */
 	public static byte[] readBytes(byte[] src, int index, int len) {
 		byte[] value = new byte[len];

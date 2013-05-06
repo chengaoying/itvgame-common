@@ -55,7 +55,7 @@ public class Authorization {
 	/**
 	 * 格式化时间字符串："yyyy/MM/dd HH:mm:ss"
 	 * @param time
-	 * @return
+	 * @return string
 	 */
 	public static String formatTimeStr(Date time) {
 		Calendar calendar = Calendar.getInstance();

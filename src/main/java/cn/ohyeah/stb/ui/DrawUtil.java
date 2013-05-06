@@ -17,7 +17,7 @@ public class DrawUtil {
 	 * @param btnBorder 按钮边框宽度
 	 * @param text 按钮文字
 	 * @param font 当前字体
-	 * @return
+	 * @return int
 	 */
 	public static int calcAdaptiveButtonWidth(int btnW, int btnBorder, String text, Font font) {
 		int textW = font.stringWidth(text);
@@ -117,7 +117,7 @@ public class DrawUtil {
 	 * @param x 显示位置
 	 * @param y 显示位置
 	 * @param gap 每个数字间的间距
-	 * @return
+	 * @return int
 	 */
 	public static int drawNumber(SGraphics g, Image img, int num, int x, int y, int gap) {
 		String number = Integer.toString(num);
@@ -140,7 +140,7 @@ public class DrawUtil {
 	 * @param x 显示位置
 	 * @param y 显示位置
 	 * @param gap 每个数字间的间距
-	 * @return
+	 * @return int
 	 */
 	public static int drawNumberWithSymbol(SGraphics g, Image img, int num, int x, int y, int gap) {
 		String number = num>=0?("+"+Integer.toString(num)):Integer.toString(num);

@@ -14,7 +14,6 @@ public class IOUtil {
 	/**
 	 * 从InputStream读取所有byte，返回byte数组
 	 * @param is
-	 * @return
 	 * @throws IOException
 	 */
 	public static byte[] readAllBytesOnly(InputStream is) throws IOException 
@@ -54,7 +53,6 @@ public class IOUtil {
 	/**
 	 * 从InputStream中读取byte数组，包含数组长度
 	 * @param is
-	 * @return
 	 * @throws IOException
 	 */
 	public static byte[] readByteArray(InputStream is) throws IOException {
@@ -66,7 +64,6 @@ public class IOUtil {
 	 * 从InputStream中读取len长度的byte数组
 	 * @param is
 	 * @param len
-	 * @return
 	 * @throws IOException
 	 */
 	public static byte[] readBytes(InputStream is, int len) throws IOException
@@ -104,7 +101,6 @@ public class IOUtil {
 	/**
 	 * 按照大端字节序读取short
 	 * @param is
-	 * @return
 	 * @throws IOException
 	 */
     public static short readShort(InputStream is) throws IOException
@@ -116,7 +112,6 @@ public class IOUtil {
     /**
      * 按照大端字节序读取short数组
      * @param is
-     * @return
      * @throws IOException
      */
     public static short[] readShortArray(InputStream is) throws IOException
@@ -166,7 +161,6 @@ public class IOUtil {
     /**
      * 按照大端字节序读取int
      * @param is
-     * @return
      * @throws IOException
      */
     public static int readInt(InputStream is) throws IOException
@@ -178,7 +172,6 @@ public class IOUtil {
     /**
      * 按照大端字节序读取int数组
      * @param is
-     * @return
      * @throws IOException
      */
     public static int[] readIntArray(InputStream is) throws IOException
@@ -228,7 +221,6 @@ public class IOUtil {
     /**
      * 按照大端字节序读取long
      * @param is
-     * @return
      * @throws IOException
      */
     public static final long readLong(InputStream is) throws IOException {
@@ -260,7 +252,6 @@ public class IOUtil {
     /**
      * 读取float
      * @param is
-     * @return
      * @throws IOException
      */
     public static final float readFloat(InputStream is) throws IOException {
@@ -280,7 +271,6 @@ public class IOUtil {
 	/**
      * 读取double
      * @param is
-     * @return
      * @throws IOException
      */
 	public static final double readDouble(InputStream is) throws IOException {
@@ -292,7 +282,6 @@ public class IOUtil {
      * 按照encoding编码读取string
      * @param is
      * @param encoding
-     * @return
      * @throws IOException
      */
     public static String readString(InputStream is, String encoding) throws IOException
@@ -313,7 +302,6 @@ public class IOUtil {
     /**
      * 按照GB2312编码读取string
      * @param is
-     * @return
      * @throws IOException
      */
     public static String readString(InputStream is) throws IOException
@@ -359,7 +347,6 @@ public class IOUtil {
     /**
      * 按照GB2312编码读取string数组
      * @param is
-     * @return
      * @throws IOException
      */
     public static String[] readStringArray(InputStream is) throws IOException {
@@ -370,7 +357,6 @@ public class IOUtil {
      * 按照encoding编码读取string数组
      * @param is
      * @param encoding
-     * @return
      * @throws IOException
      */
     public static String[] readStringArray(InputStream is, String encoding) throws IOException {

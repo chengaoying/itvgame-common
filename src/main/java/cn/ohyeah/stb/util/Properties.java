@@ -19,7 +19,6 @@ public class Properties {
 	/**
 	 * 获取指定键key的值
 	 * @param key
-	 * @return
 	 */
 	public String get(String key) {
 		return (String)props.get(key);
@@ -28,7 +27,6 @@ public class Properties {
 	/**
 	 * 移除指定键key的值
 	 * @param key
-	 * @return
 	 */
 	public String remove(String key) {
 		return (String)props.remove(key);
@@ -46,7 +44,6 @@ public class Properties {
 	/**
 	 * 判读是否包含键key
 	 * @param key
-	 * @return
 	 */
 	public boolean containsKey(String key) {
 		return props.containsKey(key);

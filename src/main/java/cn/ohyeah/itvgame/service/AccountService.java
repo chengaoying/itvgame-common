@@ -22,7 +22,7 @@ public final class AccountService extends AbstractHttpService {
 	 * 查询授权信息
 	 * @param accountId
 	 * @param productId
-	 * @return
+	 * @return Authorization
 	 * @throws ServiceException
 	 */
 	public Authorization getAuthorization(int accountId, int productId) {
@@ -55,7 +55,7 @@ public final class AccountService extends AbstractHttpService {
 	 * 查询订购属性信息
 	 * @param accountId
 	 * @param productId
-	 * @return
+	 * @return SubscribeProperties
 	 * @throws ServiceException
 	 */
 	public SubscribeProperties getSubscribeProperties(String buyURL, int accountId, 
@@ -95,7 +95,7 @@ public final class AccountService extends AbstractHttpService {
 	 * @param accountName
 	 * @param userToken
 	 * @param appName
-	 * @return
+	 * @return LoginInfo
 	 * @throws ServiceException
 	 */
 	public LoginInfo userLogin(String buyURL, String userId, String accountName, String userToken, String appName, String checkKey) {

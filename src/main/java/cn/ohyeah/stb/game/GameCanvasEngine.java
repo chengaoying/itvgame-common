@@ -13,6 +13,10 @@ import cn.ohyeah.stb.key.KeyState;
 
 /**
  * 使用GameCanvas的游戏引擎
+ * 游戏需继承该类，此类封装了jad中参数读取，以及conf文件的读取
+ * 用igbt工具编译的游戏包会有一个game.conf文件。该类还封装了<link>ServiceWrapper</link>
+ * 对象，以及用户登入之后的<link>LoginInfo</link>的信息，最主要的是该类的loop方法，
+ * 继承该类的类必须重写loop方法来实现游戏逻辑
  * @author maqian
  * @version 1.0
  */

@@ -13,7 +13,6 @@ public class DateUtil {
 	
 	/**
 	 * 获取东8区的时区对象
-	 * @return
 	 */
 	public static TimeZone getDefaultTimeZone() {
 		return TimeZone.getTimeZone("GMT+08:00");
@@ -21,7 +20,6 @@ public class DateUtil {
 	
 	/**
 	 * 获取时区为东8区的Calendar对象
-	 * @return
 	 */
 	public static Calendar getDefaultCalendar() {
 		Calendar calendar = Calendar.getInstance();
@@ -32,7 +30,6 @@ public class DateUtil {
 	/**
 	 * 格式化时间字符串："yyyy/MM/dd HH:mm:ss"
 	 * @param time
-	 * @return
 	 */
 	public static String formatTimeStr(Date time) {
 		Calendar calendar = getDefaultCalendar();
@@ -56,7 +53,6 @@ public class DateUtil {
 	 * 判断是否同一年
 	 * @param t1
 	 * @param t2
-	 * @return
 	 */
 	public static boolean isSameYear(java.util.Date t1, java.util.Date t2) {
 		Calendar c = getDefaultCalendar();
@@ -73,7 +69,6 @@ public class DateUtil {
 	 * 判断是否同一月
 	 * @param t1
 	 * @param t2
-	 * @return
 	 */
 	public static boolean isSameMonth(java.util.Date t1, java.util.Date t2) {
 		Calendar c = getDefaultCalendar();
@@ -92,7 +87,6 @@ public class DateUtil {
 	 * 判断是否同一天
 	 * @param t1
 	 * @param t2
-	 * @return
 	 */
 	public static boolean isSameDay(java.util.Date t1, java.util.Date t2) {
 		Calendar c = getDefaultCalendar();
@@ -112,7 +106,6 @@ public class DateUtil {
 	/**
 	 * 获得时间中的年份
 	 * @param t
-	 * @return
 	 */
 	public static int getYear(java.util.Date t) {
 		Calendar c = getDefaultCalendar();
@@ -123,7 +116,6 @@ public class DateUtil {
 	/**
 	 * 获得时间中的月份(从1开始计数)
 	 * @param t
-	 * @return
 	 */
 	public static int getMonth(java.util.Date t) {
 		Calendar c = getDefaultCalendar();
@@ -134,7 +126,6 @@ public class DateUtil {
 	/**
 	 * 获得时间中的日期(从1开始计数)
 	 * @param t
-	 * @return
 	 */
 	public static int getDay(java.util.Date t) {
 		Calendar c = getDefaultCalendar();
@@ -146,7 +137,6 @@ public class DateUtil {
 	 * 时间加n年
 	 * @param c
 	 * @param n
-	 * @return
 	 */
 	public static Calendar addYear(Calendar c, int n) {
 		c.set(Calendar.YEAR, c.get(Calendar.YEAR)+n);
@@ -164,7 +154,6 @@ public class DateUtil {
 	 * 时间加n个月
 	 * @param c
 	 * @param n
-	 * @return
 	 */
 	public static Calendar addMonth(Calendar c, int n) {
 		int month = c.get(Calendar.MONTH);
@@ -209,7 +198,6 @@ public class DateUtil {
 	 * 判断date1是否在date2之前
 	 * @param date1
 	 * @param date2
-	 * @return
 	 */
 	public static boolean before(java.util.Date date1, java.util.Date date2) {
 		return date1.getTime()<date2.getTime();
@@ -219,7 +207,6 @@ public class DateUtil {
 	 * 判断date1是否在date2之后
 	 * @param date1
 	 * @param date2
-	 * @return
 	 */
 	public static boolean after(java.util.Date date1, java.util.Date date2) {
 		return date1.getTime()>date2.getTime();
@@ -229,8 +216,7 @@ public class DateUtil {
 	 * 判断date是否在date1和date2之间
 	 * @param date
 	 * @param date1
-	 * @param date1
-	 * @return
+	 * @param date2
 	 */
 	public static boolean between(java.util.Date date, java.util.Date date1, java.util.Date date2) {
 		return date.getTime()>=date1.getTime()&&date.getTime()<=date2.getTime();
@@ -239,7 +225,6 @@ public class DateUtil {
 	/**
 	 * 设置时间到月初
 	 * @param c
-	 * @return
 	 */
 	public static Calendar setBeginningOfMonth(Calendar c) {
 		c.set(Calendar.DAY_OF_MONTH, 1);
@@ -253,7 +238,6 @@ public class DateUtil {
 	/**
 	 * 设置时间到月末
 	 * @param c
-	 * @return
 	 */
 	public static Calendar setEndOfMonth(Calendar c) {
 		addMonth(c, 1);
@@ -266,7 +250,6 @@ public class DateUtil {
 	/**
 	 * 获得月初的时间
 	 * @param t
-	 * @return
 	 */
 	public static java.util.Date getMonthStartTime(java.util.Date t) {
 		Calendar c = getDefaultCalendar();
@@ -278,7 +261,6 @@ public class DateUtil {
 	/**
 	 * 获得月末的时间
 	 * @param t
-	 * @return
 	 */
 	public static java.util.Date getMonthEndTime(java.util.Date t) {
 		Calendar c = getDefaultCalendar();
@@ -290,7 +272,6 @@ public class DateUtil {
 	/**
 	 * 获得下个月月初的时间
 	 * @param t
-	 * @return
 	 */
 	public static java.util.Date getNextMonthStartTime(java.util.Date t) {
 		Calendar c = getDefaultCalendar();

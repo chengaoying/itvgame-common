@@ -51,7 +51,7 @@ public final class ServiceWrapper {
 	/**
 	 * 查询鉴权
 	 * 判断某用户对某包月游戏是否有鉴权(是否已包月)
-	 * @return
+	 * @return 鉴权信息
 	 */
 	public Authorization queryAuthorization() {
 		if (offline) {
@@ -78,7 +78,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询订购属性
-	 * @return
+	 * @return 订购属性
 	 */
 	public SubscribeProperties querySubscribeProperties() {
 		if (offline) {
@@ -106,7 +106,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 用户登入
-	 * @return
+	 * @return 登入信息
 	 */
 	public LoginInfo userLogin() {
 		if (offline) {
@@ -134,7 +134,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询成就描述信息
-	 * @return
+	 * @return 游戏成就描述
 	 */
 	public GameAttainmentDesc[] queryAttainmentDescList() {
 		return queryAttainmentDescList("desc", null, null);
@@ -144,7 +144,7 @@ public final class ServiceWrapper {
 	 * 查询成就描述信息
 	 * @param start 开始时间
 	 * @param end	结束时间
-	 * @return
+	 * @return 游戏成就描述
 	 */
 	public GameAttainmentDesc[] queryAttainmentDescList(java.util.Date start, java.util.Date end) {
 		return queryAttainmentDescList("desc", start, end);
@@ -155,7 +155,7 @@ public final class ServiceWrapper {
 	 * @param orderCmd 排序方式
 	 * @param start	开始时间
 	 * @param end	结束时间
-	 * @return
+	 * @return 游戏成就描述
 	 */
 	public GameAttainmentDesc[] queryAttainmentDescList(String orderCmd, java.util.Date start, java.util.Date end) {
 		if (offline) {
@@ -185,7 +185,7 @@ public final class ServiceWrapper {
 	 * 查询排行列表
 	 * @param offset	开始位置
 	 * @param length	记录条数
-	 * @return
+	 * @return 游戏排行
 	 */
 	public GameRanking[] queryRankingList(int offset, int length) {
 		return queryRankingList("desc", null, null, offset, length);
@@ -197,7 +197,7 @@ public final class ServiceWrapper {
 	 * @param end	结束时间
 	 * @param offset	开始位置
 	 * @param length	记录条数
-	 * @return
+	 * @return 游戏排行
 	 */
 	public GameRanking[] queryRankingList(java.util.Date start, java.util.Date end, int offset, int length) {
 		return queryRankingList("desc", start, end, offset, length);
@@ -210,7 +210,7 @@ public final class ServiceWrapper {
 	 * @param end	结束时间
 	 * @param offset	开始位置
 	 * @param length	记录条数
-	 * @return
+	 * @return 游戏排行
 	 */
 	public GameRanking[] queryRankingList(String orderCmd, java.util.Date start, java.util.Date end, int offset, int length) {
 		if (offline) {
@@ -239,7 +239,7 @@ public final class ServiceWrapper {
 	/**
 	 * 读取游戏成就
 	 * @param attainmentId 成就id
-	 * @return
+	 * @return	游戏成就
 	 */
 	public GameAttainment readAttainment(int attainmentId) {
 		return readAttainment(attainmentId, "desc", null, null);
@@ -250,7 +250,7 @@ public final class ServiceWrapper {
 	 * @param attainmentId	成就id
 	 * @param start	开始时间
 	 * @param end	结束时间
-	 * @return
+	 * @return 游戏成就
 	 */
 	public GameAttainment readAttainment(int attainmentId, java.util.Date start, java.util.Date end) {
 		return readAttainment(attainmentId, "desc", start, end);
@@ -262,7 +262,7 @@ public final class ServiceWrapper {
 	 * @param orderCmd	排序方式
 	 * @param start	开始时间
 	 * @param end	结束时间
-	 * @return
+	 * @return	游戏成就
 	 */
 	public GameAttainment readAttainment(int attainmentId, String orderCmd, java.util.Date start, java.util.Date end) {
 		if (offline) {
@@ -340,7 +340,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询用户在某一款游戏上购买的道具列表
-	 * @return
+	 * @return	用户道具列表
 	 */
 	public OwnProp[] queryOwnPropList() {
 		if (engine.isDebugMode()) {
@@ -371,7 +371,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询某一款游戏的道具列表
-	 * @return
+	 * @return	道具列表
 	 */
 	public Prop[] queryGamePropList() {
 		if (offline) {
@@ -604,7 +604,7 @@ public final class ServiceWrapper {
 	 * 查询购买记录
 	 * @param offset	开始位置
 	 * @param length	记录条数
-	 * @return
+	 * @return  购买记录
 	 */
 	public PurchaseRecord[] queryPurchaseRecord(int offset, int length) {
 		if (offline) {
@@ -632,7 +632,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询记录描述信息
-	 * @return
+	 * @return 游戏记录描述
 	 */
 	public GameRecordDesc[] queryRecordDescList() {
 		if (offline) {
@@ -660,7 +660,7 @@ public final class ServiceWrapper {
 	/**
 	 * 读取游戏记录
 	 * @param recordId	记录id
-	 * @return
+	 * @return	游戏记录
 	 */
 	public GameRecord readRecord(int recordId) {
 		if (offline) {
@@ -773,7 +773,7 @@ public final class ServiceWrapper {
 	 * 查询订购记录
 	 * @param offset	开始位置
 	 * @param length	记录条数
-	 * @return
+	 * @return 订购记录列表
 	 */
 	public SubscribeRecord[] querySubscribeRecord(int offset, int length) {
 		if (offline) {
@@ -1047,7 +1047,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 查询系统时间
-	 * @return
+	 * @return 当前系统时间
 	 */
 	public java.util.Date querySystemTime() {
 		if (offline) {
@@ -1097,6 +1097,9 @@ public final class ServiceWrapper {
 		}
 	}
 	
+	/**
+	 * 进入大厅充值界面(已弃用)
+	 */
 	public void gotoRechargePage() {
 		if (offline) {
 			result = -1;
@@ -1152,7 +1155,7 @@ public final class ServiceWrapper {
 	
 	/**
 	 * 获取调用服务之后的信息
-	 * @return
+	 * @return 信息描述
 	 */
 	public String getServiceMessage() {
 		return message;
@@ -1162,7 +1165,7 @@ public final class ServiceWrapper {
 	 * 判断执行某次交互是否成功
 	 * 每次执行一次与服务器的交互都要调用该方法判断
 	 * 操作是否成功，或调用getServiceResult方法是否返回0来判断
-	 * @return
+	 * @return true, false
 	 */
 	public boolean isServiceSuccessful() {
 		return result == 0;
