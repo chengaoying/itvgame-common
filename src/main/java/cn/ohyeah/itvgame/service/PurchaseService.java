@@ -187,6 +187,44 @@ public final class PurchaseService extends AbstractHttpService{
 	}
 	
 	/**
+	 */
+	public int expendTelcomsh(String buyURL, int accountId, String accountName, String userToken, 
+			int productId, int propId, String remark, String gameid, String spid,
+			String checkKey) {
+		try {
+			int balance = -1;
+			initHead(Constant.PROTOCOL_TAG_PURCHASE, Constant.PURCHASE_CMD_EXPEND_TELCOMSH);
+			openBufferDataOutputStream();
+			bufferDos.writeInt(headWrapper.getHead());
+			bufferDos.writeUTF(buyURL);
+			bufferDos.writeInt(accountId);
+			bufferDos.writeUTF(accountName);
+			bufferDos.writeUTF(userToken);
+			bufferDos.writeInt(productId);
+			bufferDos.writeInt(propId);
+			bufferDos.writeInt(SubscribePayType.PAY_TYPE_BILL);
+			bufferDos.writeUTF(remark);
+			bufferDos.writeUTF(gameid);
+			bufferDos.writeUTF(spid);
+			bufferDos.writeUTF(checkKey);
+			byte[] data = bufferBaos.toByteArray();
+			closeBufferDataOutputStream();
+			
+			writeData(data);
+			checkHead();
+			if (readResult() == 0) {
+				balance = connectionDis.readInt();
+			}
+			return balance;
+		} catch (IOException e) {
+			throw new ServiceException(e.getMessage());
+		}
+		finally {
+			close();
+		}
+	}
+	
+	/**
 	 * <pre>
 	 * 查询消费记录
 	 * 若查询最近的1~10条记录,offset=0, length=10

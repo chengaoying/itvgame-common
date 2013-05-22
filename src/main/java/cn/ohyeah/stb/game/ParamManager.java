@@ -178,8 +178,8 @@ final class ParamManager {
 		userToken = getStringParam("userToken");
 		appName = getStringParam("appName");
 		buyURL = "";
-		gameid = "";
-		spid = "";
+		gameid = getStringParam("gameid");
+		spid = getStringParam("spid");;
 		checkKey = "";
 	}
 	

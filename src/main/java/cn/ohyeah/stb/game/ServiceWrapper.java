@@ -561,6 +561,36 @@ public final class ServiceWrapper {
 	}
 	
 	/**
+	 * 上海电信消费(购买道具)
+	 * @param propId 道具id
+	 * @param remark 描述
+	 */
+	public void expendTelcomsh(int propId, String remark) {
+		if (engine.isDebugMode()) {
+			result = 0;
+			return;
+		}
+		if (offline) {
+			result = -1;
+			message = OFFLINE_MSG;
+			return;
+		}
+		try {
+			PurchaseService purchaseService = new PurchaseService(server);
+			purchaseService.expendTelcomsh(paramManager.buyURL,  paramManager.accountId, paramManager.accountName, 
+					paramManager.userToken, paramManager.productId, propId, remark,
+					paramManager.gameid, paramManager.spid, paramManager.checkKey);
+			result = purchaseService.getResult();
+			message = purchaseService.getMessage();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			result = -1;
+			message = e.getMessage();
+		}
+	}
+	
+	/**
 	 * 购买道具
 	 * @param propId
 	 * @param propCount
