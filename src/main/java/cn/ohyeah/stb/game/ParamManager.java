@@ -208,7 +208,7 @@ final class ParamManager {
 		server = getStringParam("server");
 		userId = getStringParam("userId");
 		accountName = getStringParam("accountName");
-		userToken = getStringParam("UserToken");
+		userToken = getStringParam("userToken");
 		appName = getStringParam("appName");
 		shengyiCPID = getStringParam("cpId");
 		shengyiCPPassWord = getStringParam("cpPassWord");
