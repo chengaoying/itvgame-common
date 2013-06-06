@@ -40,6 +40,7 @@ public final class ServiceWrapper {
 	private int result;
 	private String message;
 	
+	
 	public ServiceWrapper(IEngine engine, String server) {
 		this.engine = engine;
 		this.engineService = engine.getEngineService();
@@ -577,9 +578,8 @@ public final class ServiceWrapper {
 		}
 		try {
 			PurchaseService purchaseService = new PurchaseService(server);
-			purchaseService.expendTelcomsh(paramManager.buyURL,  paramManager.accountId, paramManager.accountName, 
-					paramManager.userToken, paramManager.productId, propId, remark,
-					paramManager.gameid, paramManager.spid, paramManager.checkKey);
+			purchaseService.expendTelcomsh(paramManager.buyURL,  paramManager.userId,paramManager.userToken,paramManager.accountName,
+					paramManager.accountId,paramManager.productId, propId, remark,paramManager.gameid);
 			result = purchaseService.getResult();
 			message = purchaseService.getMessage();
 		}

@@ -467,7 +467,7 @@ abstract public class GameCanvasEngine extends GameCanvas implements Runnable, I
 	public ServiceWrapper getServiceWrapper(String server) {
 		return engineService.getServiceWrapper(server);
 	}
-
+	
 	public boolean isOffline() {
 		return engineService.isOffline();
 	}

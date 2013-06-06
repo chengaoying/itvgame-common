@@ -2,6 +2,8 @@ package cn.ohyeah.itvgame.service;
 
 import java.io.IOException;
 
+import javax.microedition.io.HttpConnection;
+
 import cn.ohyeah.itvgame.model.PurchaseRecord;
 import cn.ohyeah.itvgame.model.SubscribePayType;
 import cn.ohyeah.itvgame.protocol.Constant;
@@ -187,10 +189,10 @@ public final class PurchaseService extends AbstractHttpService{
 	}
 	
 	/**
+	 * 上海电信购买道具
 	 */
-	public int expendTelcomsh(String buyURL, int accountId, String accountName, String userToken, 
-			int productId, int propId, String remark, String gameid, String spid,
-			String checkKey) {
+	public int expendTelcomsh(String buyURL,String useId,String userToken,String accountName,int accountId,
+			int productId, int propId, String remark, String gameid) {
 		try {
 			int balance = -1;
 			initHead(Constant.PROTOCOL_TAG_PURCHASE, Constant.PURCHASE_CMD_EXPEND_TELCOMSH);
@@ -205,13 +207,46 @@ public final class PurchaseService extends AbstractHttpService{
 			bufferDos.writeInt(SubscribePayType.PAY_TYPE_BILL);
 			bufferDos.writeUTF(remark);
 			bufferDos.writeUTF(gameid);
-			bufferDos.writeUTF(spid);
-			bufferDos.writeUTF(checkKey);
 			byte[] data = bufferBaos.toByteArray();
 			closeBufferDataOutputStream();
 			
 			writeData(data);
 			checkHead();
+			if (readResult() == 0) {
+				balance = connectionDis.readInt();
+			}
+			return balance;
+		} catch (IOException e) {
+			throw new ServiceException(e.getMessage());
+		}
+		finally {
+			close();
+		}
+	}
+	
+	public int expendTelcomsh_(String buyURL,String useId,
+			int productId, int propId, String remark, String gameid) {
+		try {
+			int balance = -1;
+			initHead(Constant.PROTOCOL_TAG_PURCHASE, Constant.PURCHASE_CMD_EXPEND_TELCOMSH);
+			openBufferDataOutputStream();
+			
+			bufferDos.writeInt(headWrapper.getHead());
+			bufferDos.writeUTF(buyURL);
+			bufferDos.writeInt(productId);
+			bufferDos.writeInt(propId);
+			bufferDos.writeInt(SubscribePayType.PAY_TYPE_BILL);
+			bufferDos.writeUTF(remark);
+			bufferDos.writeUTF(gameid);
+			byte[] data = bufferBaos.toByteArray();
+			closeBufferDataOutputStream();
+			
+			writeData(data);
+			int rc = httpConnection.getResponseCode();
+			if (rc != HttpConnection.HTTP_OK) {
+		        throw new ServiceException("Http Response Code: " + rc);
+		    }
+		    openConnectionDataInputStream();
 			if (readResult() == 0) {
 				balance = connectionDis.readInt();
 			}

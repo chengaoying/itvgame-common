@@ -179,7 +179,7 @@ final class ParamManager {
 		appName = getStringParam("appName");
 		buyURL = "";
 		gameid = getStringParam("gameid");
-		spid = getStringParam("spid");;
+		spid = "";//getStringParam("spid");;
 		checkKey = "";
 	}
 	
