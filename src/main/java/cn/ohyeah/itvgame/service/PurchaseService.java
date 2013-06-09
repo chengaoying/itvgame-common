@@ -214,8 +214,9 @@ public final class PurchaseService extends AbstractHttpService{
 			checkHead();
 			if (readResult() == 0) {
 				balance = connectionDis.readInt();
+				return balance;
 			}
-			return balance;
+			return 0;
 		} catch (IOException e) {
 			throw new ServiceException(e.getMessage());
 		}

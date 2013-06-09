@@ -316,6 +316,8 @@ abstract public class GameCanvasEngine extends GameCanvas implements Runnable, I
 	    	}else{
 	    		state = STATE_USER_LOOP;
 	    		clearLoadingRes();
+	    		g.setColor(0x000000);
+	    		g.fillRect(-Configurations.Abs_Coords_X, -Configurations.Abs_Coords_Y, screenWidth, screenHeight);
 	    	}
 		}
 	}

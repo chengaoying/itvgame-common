@@ -578,10 +578,13 @@ public final class ServiceWrapper {
 		}
 		try {
 			PurchaseService purchaseService = new PurchaseService(server);
-			purchaseService.expendTelcomsh(paramManager.buyURL,  paramManager.userId,paramManager.userToken,paramManager.accountName,
+			int b = purchaseService.expendTelcomsh(paramManager.buyURL,  paramManager.userId,paramManager.userToken,paramManager.accountName,
 					paramManager.accountId,paramManager.productId, propId, remark,paramManager.gameid);
 			result = purchaseService.getResult();
 			message = purchaseService.getMessage();
+			if(result == 0){
+				engineService.balance = b;
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
