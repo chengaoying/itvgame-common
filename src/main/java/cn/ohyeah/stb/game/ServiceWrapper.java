@@ -858,7 +858,7 @@ public final class ServiceWrapper {
 			else {
 				b = subscribeService.recharge(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
 						paramManager.userToken, paramManager.productId, amount,	engineService.subProps.getRechargeRatio(), 
-						remark, paramManager.checkKey, paramManager.spid, password);
+						remark, paramManager.checkKey, paramManager.spid, paramManager.gameid, password);
 			}
 			result = subscribeService.getResult();
 			if (result == 0) {
@@ -921,7 +921,7 @@ public final class ServiceWrapper {
 			else {
 				b = subscribeService.recharge(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
 						paramManager.userToken, paramManager.productId, amount,	engineService.subProps.getRechargeRatio(), 
-						payType, remark, paramManager.checkKey, paramManager.spid, password); 
+						payType, remark, paramManager.checkKey, paramManager.spid, paramManager.gameid, password); 
 			}
 			result = subscribeService.getResult();
 			if (result == 0) {
