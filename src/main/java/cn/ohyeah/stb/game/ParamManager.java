@@ -35,11 +35,12 @@ final class ParamManager {
 	String shengyiProductId;	/*盛翼特需参数*/
 	
 	String feeaccount;			/*付费账号*/
-	String returnurl;			/*返回地址*/
-	String dwjvl;				/*平台加密验证*/
+	String dwjtvkey;			/*平台加密验证*/
 	String opcomkey;			/*区域标识*/
 	String paysubway;			/*充值类型，主动/被动*/
-	String user_group_id;		/*运营商地区标识*/
+	String vl_zonekey;			/*运营商地区标识*/
+	String opcomtoken;			/*视线未知参数*/
+	String opcompara;			/*视线未知参数*/
 	String appId;				/*appId, 视线使用参数*/
 	
 	String spid;			/*供应商ID，中游和掌世界充值时需要*/
@@ -222,16 +223,17 @@ final class ParamManager {
 	
 	private void parseShiXianPlatParam() {
 		server = getStringParam("loginurl");
-		userId = getStringParam("tvplat#numbercode");
-		userToken = ""/*getStringParam("USER_TOKEN")*/;
+		userId = getStringParam("numbercode");
+		userToken = getStringParam("vl_token");
 		appName = getStringParam("appname");
-		feeaccount = getStringParam("tvplat#feeaccount");
-		returnurl = ""/*getStringParam("tvplat#returnurl")*/;
-		dwjvl = getStringParam("tvplat#dwjvl");
-		opcomkey = getStringParam("tvplat#opcomkey");
-		paysubway = getStringParam("tvplat#paysubway");
-		user_group_id = ""/*getStringParam("USER_GROUP_ID")*/;
-		buyURL = getStringParam("buyURL");
+		feeaccount = getStringParam("feeAccount");
+		dwjtvkey = getStringParam("dwjtvkey");
+		opcomkey = getStringParam("opcomkey");
+		paysubway = getStringParam("paysubway");
+		opcomtoken = getStringParam("opcomtoken");
+		opcompara = getStringParam("opcompara");
+		vl_zonekey = getStringParam("vl_zonekey");
+		buyURL = "";
 		gameid = ""/*getStringParam("tvplat#gameid")*/;
 		spid = "";
 		checkKey = "";

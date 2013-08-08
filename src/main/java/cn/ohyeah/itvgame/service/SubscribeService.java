@@ -278,16 +278,16 @@ public final class SubscribeService extends AbstractHttpService{
 	
 	public int rechargeShiXian(String buyURL, int accountId, String accountName, String userToken, 
 			int productId, int amount, int ratio,  String remark, String checkKey, String feeaccount,
-			String returnurl, String dwjvl, String opcomkey, String paysubway, String gameid, String user_group_id,
+			String dwjvl, String opcomkey, String paysubway, String gameid, String vl_zonekey,
 			String password, String appId){
 		return rechargeShiXian(buyURL, accountId, accountName, userToken, productId, amount, ratio, 
-				SubscribePayType.PAY_TYPE_BILL, remark, checkKey, feeaccount, returnurl, dwjvl, opcomkey,
-				paysubway, gameid, user_group_id, password, appId);
+				SubscribePayType.PAY_TYPE_BILL, remark, checkKey, feeaccount, dwjvl, opcomkey,
+				paysubway, gameid, vl_zonekey, password, appId);
 	}
 	
 	public int rechargeShiXian(String buyURL, int accountId, String accountName, String userToken, 
 			int productId, int amount, int ratio, int payType, String remark, String checkKey, String feeaccount,
-			String returnurl, String dwjvl, String opcomkey, String paysubway, String gameid, String user_group_id,
+			String dwjvl, String opcomkey, String paysubway, String gameid, String vl_zonekey,
 			String password, String appId){
 		try {
 			int balance = -1;
@@ -305,12 +305,11 @@ public final class SubscribeService extends AbstractHttpService{
 			bufferDos.writeUTF(remark);
 			bufferDos.writeUTF(checkKey);
 			bufferDos.writeUTF(feeaccount);
-			bufferDos.writeUTF(returnurl);
 			bufferDos.writeUTF(dwjvl);
 			bufferDos.writeUTF(opcomkey);
 			bufferDos.writeUTF(paysubway);
 			bufferDos.writeUTF(gameid);
-			bufferDos.writeUTF(user_group_id);
+			bufferDos.writeUTF(vl_zonekey);
 			bufferDos.writeUTF(appId);
 			if (password == null) {
 				bufferDos.writeUTF("");
