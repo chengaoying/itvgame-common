@@ -36,7 +36,6 @@ final class ParamManager {
 	
 	String feeaccount;			/*付费账号*/
 	String dwjtvkey;			/*平台加密验证*/
-	String opcomkey;			/*区域标识*/
 	String paysubway;			/*充值类型，主动/被动*/
 	String vl_zonekey;			/*运营商地区标识*/
 	String opcomtoken;			/*视线未知参数*/
@@ -228,13 +227,12 @@ final class ParamManager {
 		appName = getStringParam("appname");
 		feeaccount = getStringParam("feeAccount");
 		dwjtvkey = getStringParam("dwjtvkey");
-		opcomkey = getStringParam("opcomkey");
 		paysubway = getStringParam("paysubway");
 		opcomtoken = getStringParam("opcomtoken");
 		opcompara = getStringParam("opcompara");
 		vl_zonekey = getStringParam("vl_zonekey");
 		buyURL = "";
-		gameid = ""/*getStringParam("tvplat#gameid")*/;
+		gameid = getStringParam("gameCode");
 		spid = "";
 		checkKey = "";
 		accountName = userId;

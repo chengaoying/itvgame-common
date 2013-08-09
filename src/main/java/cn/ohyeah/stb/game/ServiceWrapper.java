@@ -515,6 +515,41 @@ public final class ServiceWrapper {
 	}
 	
 	/**
+	 * 杭州视线消费
+	 * @param amount
+	 * @param remark
+	 */
+	public void expendShiXian(int amount, String remark) {
+		if (engine.isDebugMode()) {
+			result = 0;
+			return;
+		}
+		if (offline) {
+			result = -1;
+			message = OFFLINE_MSG;
+			return;
+		}
+		try {
+			PurchaseService purchaseService = new PurchaseService(server);
+			int b = purchaseService.expendShiXian(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
+					paramManager.userToken, paramManager.productId, amount, paramManager.gameid,paramManager.feeaccount, paramManager.dwjtvkey
+					,paramManager.vl_zonekey, paramManager.paysubway, paramManager.vl_zonekey);
+			result = purchaseService.getResult();
+			if (result == 0) {
+				engineService.balance = b;
+			}
+			else {
+				message = purchaseService.getMessage();
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			result = -1;
+			message = e.getMessage();
+		}
+	}
+	
+	/**
 	 * 鼎亿购买道具
 	 * @param price	价格
 	 * @param propId	道具id
@@ -915,7 +950,7 @@ public final class ServiceWrapper {
 				b = subscribeService.rechargeShiXian(paramManager.buyURL, paramManager.accountId, 
 						paramManager.accountName, paramManager.userToken, paramManager.productId, 
 						amount, engineService.subProps.getRechargeRatio(), remark, paramManager.checkKey,
-						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.opcomkey, 
+						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.vl_zonekey, 
 						paramManager.paysubway, paramManager.gameid, paramManager.vl_zonekey,password, paramManager.appId);
 			}
 			else {
