@@ -278,17 +278,17 @@ public final class SubscribeService extends AbstractHttpService{
 	
 	public int rechargeShiXian(String buyURL, int accountId, String accountName, String userToken, 
 			int productId, int amount, int ratio,  String remark, String checkKey, String feeaccount,
-			String dwjvl, String opcomkey, String paysubway, String gameid, String vl_zonekey,
-			String password, String appId){
+			String dwjvl, String paysubway, String gameid, String vl_zonekey, 
+			String returnurl, String opcompara, String opcomtoken, String appId, String password){
 		return rechargeShiXian(buyURL, accountId, accountName, userToken, productId, amount, ratio, 
-				SubscribePayType.PAY_TYPE_BILL, remark, checkKey, feeaccount, dwjvl, opcomkey,
-				paysubway, gameid, vl_zonekey, password, appId);
+				SubscribePayType.PAY_TYPE_BILL, remark, checkKey, feeaccount, dwjvl,
+				paysubway, gameid, vl_zonekey, returnurl, opcompara,opcomtoken, appId, password);
 	}
 	
 	public int rechargeShiXian(String buyURL, int accountId, String accountName, String userToken, 
 			int productId, int amount, int ratio, int payType, String remark, String checkKey, String feeaccount,
-			String dwjvl, String opcomkey, String paysubway, String gameid, String vl_zonekey,
-			String password, String appId){
+			String dwjvl, String paysubway, String gameid, String vl_zonekey, 
+			String returnurl, String opcompara, String opcomtoken, String appId, String password){
 		try {
 			int balance = -1;
 			initHead(Constant.PROTOCOL_TAG_SUBSCRIBE, Constant.SUBSCRIBE_CMD_RECHARGE_SHIXIAN);
@@ -306,10 +306,12 @@ public final class SubscribeService extends AbstractHttpService{
 			bufferDos.writeUTF(checkKey);
 			bufferDos.writeUTF(feeaccount);
 			bufferDos.writeUTF(dwjvl);
-			bufferDos.writeUTF(opcomkey);
 			bufferDos.writeUTF(paysubway);
 			bufferDos.writeUTF(gameid);
 			bufferDos.writeUTF(vl_zonekey);
+			bufferDos.writeUTF(returnurl);
+			bufferDos.writeUTF(opcompara);
+			bufferDos.writeUTF(opcomtoken);
 			bufferDos.writeUTF(appId);
 			if (password == null) {
 				bufferDos.writeUTF("");

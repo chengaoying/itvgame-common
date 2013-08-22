@@ -950,8 +950,9 @@ public final class ServiceWrapper {
 				b = subscribeService.rechargeShiXian(paramManager.buyURL, paramManager.accountId, 
 						paramManager.accountName, paramManager.userToken, paramManager.productId, 
 						amount, engineService.subProps.getRechargeRatio(), remark, paramManager.checkKey,
-						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.vl_zonekey, 
-						paramManager.paysubway, paramManager.gameid, paramManager.vl_zonekey,password, paramManager.appId);
+						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.paysubway, 
+						paramManager.gameid, paramManager.vl_zonekey, paramManager.returnurl,paramManager.opcompara,
+						paramManager.opcomtoken,paramManager.appId,password);
 			}
 			else {
 				b = subscribeService.recharge(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 

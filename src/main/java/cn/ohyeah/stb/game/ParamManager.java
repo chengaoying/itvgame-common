@@ -40,6 +40,7 @@ final class ParamManager {
 	String vl_zonekey;			/*运营商地区标识*/
 	String opcomtoken;			/*视线未知参数*/
 	String opcompara;			/*视线未知参数*/
+	String returnurl;			/*视线未知参数*/
 	String appId;				/*appId, 视线使用参数*/
 	
 	String spid;			/*供应商ID，中游和掌世界充值时需要*/
@@ -231,6 +232,7 @@ final class ParamManager {
 		opcomtoken = getStringParam("opcomtoken");
 		opcompara = getStringParam("opcompara");
 		vl_zonekey = getStringParam("vl_zonekey");
+		returnurl = getStringParam("vl_return_url");
 		buyURL = "";
 		gameid = getStringParam("gameCode");
 		spid = "";

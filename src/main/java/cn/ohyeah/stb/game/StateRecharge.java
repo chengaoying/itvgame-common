@@ -84,6 +84,7 @@ public class StateRecharge {
 	private byte pwdGroupIndex;
 	private byte pwdBtnIndex;
 	private int rechargeAmount;
+	private int expentAmount;
 	//private boolean back;
 	private int[] amountList;
 	private ResourceManager resource;
@@ -279,7 +280,7 @@ public class StateRecharge {
 			g.drawString("iTV体验期内订购需正常付费", confirmX+70, confirmY+138, 20);
 		}
 		
-		String productName = engineService.getRechargeCommand()+rechargeAmount*engineService.getExpendCashToAmountRatio()+engineService.getExpendAmountUnit();
+		String productName = engineService.getRechargeCommand()+expentAmount+engineService.getExpendAmountUnit();
 		//String productName = "<<"+engineService.getProductName()+">>"+engineService.getRechargeCommand();
 		Font font = g.getFont();
 		int textDelta = (25-font.getHeight())>>1;
@@ -429,7 +430,9 @@ public class StateRecharge {
 			g.setColor(0XFFFF00);
 			g.drawString(amount+unit, sx+2, sy+textDelta, 20);
 			
-			ss = amountList[i]*engineService.getRechargeRatio()+engineService.getExpendAmountUnit();
+			setExpentAmount(i);
+			
+			ss = expentAmount+engineService.getExpendAmountUnit();
 			g.setColor(0XFFFF00);
 			g.drawString(ss, sx+sw-font.stringWidth(ss)-2, sy+textDelta, 20);
 			
@@ -457,6 +460,18 @@ public class StateRecharge {
 		else if (groupIndex == 2){
 			DrawUtil.drawRect(g, sx, sy, back.getWidth(), back.getHeight(), 2, 0XFFFF00);
 		}
+	}
+	
+	private int setExpentAmount(int i){
+		if(Configurations.getInstance().isServiceProviderShiXian()){
+			expentAmount = amountList[i]*engineService.getRechargeRatio();
+			if(amountList[i] >= 10){
+				expentAmount += 15;
+			}else if(amountList[i] < 10 && amountList[i] >= 5){
+				expentAmount += 5;
+			}
+		}
+		return expentAmount;
 	}
 	
 	private void handle(KeyState key) {
@@ -647,16 +662,16 @@ public class StateRecharge {
 	}
 	
 	private boolean isPasswordError(String msg) {
-		boolean pwdError = false;
 		if (msg.indexOf("密码")>=0) {
-			if (msg.indexOf("错误") > 0
-				|| msg.indexOf("校验失败")>0) {
-				pwdError = true;
+			if (msg.indexOf("错误") >= 0
+				|| msg.indexOf("有误")>=0
+				|| msg.indexOf("校验失败")>=0) {
+				return true;
 			}
 		}
-		return pwdError;
+		return false;
 	}
-
+	
 	private void handleConfirm(KeyState key) {
 		
 		if (key.containsAndRemove(KeyCode.NUM1)) {
@@ -734,7 +749,7 @@ public class StateRecharge {
 						state=STATE_SELECT_AMOUNT;
 					}
 					else {
-						if (isPasswordError(sw.getServiceMessage()) && !engineService.isRechrageSuccess) {
+						if (isPasswordError(sw.getServiceMessage())/* && !engineService.isRechrageSuccess*/) {
 							gotoStatePassword();
 						}
 						else {
@@ -807,6 +822,7 @@ public class StateRecharge {
 			else if (groupIndex == 1) {
 				if (engineService.isSupportRecharge()) {
 					rechargeAmount = amountList[amountIndex];
+					expentAmount = setExpentAmount(amountIndex);
 					boolean canRecharge = true;
 					if (curPayType == 1) {
 						if (engineService.getAvailablePoints() < rechargeAmount*engineService.getCashToPointsRatio()) {
