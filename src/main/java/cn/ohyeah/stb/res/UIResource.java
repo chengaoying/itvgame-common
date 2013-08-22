@@ -22,15 +22,25 @@ public class UIResource {
 	private static final short H_CONFIRM_BTN = 27;
 	private static final short BORDER_CONFIRM_BTN = 5;
 	
+	private static final short W_POPUP_TEXT_CONFIRM = 420;
+	private static final short H_POPUP_TEXT_CONFIRM = 258;
+	private static final short W_CONFIRM_BTN_CONFIRM = 120;
+	private static final short H_CONFIRM_BTN_CONFIRM = 43;
+	private static final short BORDER_CONFIRM_BTN_CONFIRM = 5;
 	private static final String[] STR_CONFIRM_BTN_TEXT = {"确定", "取消"};
 	
 	private static final short PIC_ID_POPUP_BG = 0;
 	private static final short PIC_ID_POPUP_BTN = 1;
+	private static final short PIC_ID_POPUP_BG_COMFIRM = 2;
+	private static final short PIC_ID_POPUP_BTN_COMFIRM = 3;
 	
-	private static final String[] imagePaths = {
-		"/common/popup-bg.png",
+	private static final String[] imagePaths = { 
+		"/common/popup-bg.png", 
 		"/common/popup-btn.png",
+		"/common/popup-bg-com.png", 
+		"/common/popup-btn-com.png" 
 	};
+
 	
 	private static UIResource instance;
 	private static IEngine engine;
@@ -72,8 +82,8 @@ public class UIResource {
 	}
 
 	private void registerButtonBg(PopupText pt) {
-		pt.setButtonBg(resource.loadImage(PIC_ID_POPUP_BTN), 
-				W_CONFIRM_BTN, (short)0, W_CONFIRM_BTN, H_CONFIRM_BTN);
+		pt.setButtonBg(resource.loadImage(PIC_ID_POPUP_BTN), W_CONFIRM_BTN, (short) 0,
+				W_CONFIRM_BTN, H_CONFIRM_BTN);
 		pt.setButtonBorder(BORDER_CONFIRM_BTN);
 		pt.setButtonText("确定");
 		pt.setButtonTextColor(0XFFFFFF);
@@ -82,8 +92,10 @@ public class UIResource {
 	private void registerTextBg(PopupText pt) {
 		Image textBg = resource.loadImage(PIC_ID_POPUP_BG);
 		pt.setTextBg(textBg);
-		pt.setTextBgPos(((engine.getScreenWidth()-textBg.getWidth())>>1)-Configurations.Abs_Coords_X, 
-				((engine.getScreenHeight()-textBg.getHeight())>>1)-Configurations.Abs_Coords_Y);
+		pt.setTextBgPos(((engine.getScreenWidth() - textBg.getWidth()) >> 1)
+				- Configurations.Abs_Coords_X,
+				((engine.getScreenHeight() - textBg.getHeight()) >> 1)
+						- Configurations.Abs_Coords_Y);
 		defaultPt.setTextRegion(X_POPUP_TEXT, Y_POPUP_TEXT, W_POPUP_TEXT, H_POPUP_TEXT);
 		pt.setTextColor(0XFFFFFF);
 	}
@@ -102,9 +114,19 @@ public class UIResource {
 		return defaultPc;
 	}
 	
+	public PopupConfirm buildPopupConfirm_2() {
+		defaultPc.setText(null);
+		defaultPc.resetButtonIndex();
+		registerTextBg_2(defaultPc);
+		registerButtonBg_2(defaultPc);
+		return defaultPc;
+	}
+	
 	public void clearDefaultPopupConfirm() {
 		resource.freeImage(PIC_ID_POPUP_BG);
 		resource.freeImage(PIC_ID_POPUP_BTN);
+		resource.freeImage(PIC_ID_POPUP_BG_COMFIRM);
+		resource.freeImage(PIC_ID_POPUP_BTN_COMFIRM);
 		defaultPc.clear();
 	}
 	
@@ -126,8 +148,17 @@ public class UIResource {
 	}
 
 	private void registerButtonBg(PopupConfirm pc) {
-		pc.setButtonBg(resource.loadImage(PIC_ID_POPUP_BTN), W_CONFIRM_BTN, H_CONFIRM_BTN);
+		pc.setButtonBg(resource.loadImage(PIC_ID_POPUP_BTN), W_CONFIRM_BTN,
+				H_CONFIRM_BTN);
 		pc.setButtonBorder(BORDER_CONFIRM_BTN);
+		pc.setButtonText(STR_CONFIRM_BTN_TEXT);
+		pc.setButtonNormalTextColor(0XFFFFFF);
+	}
+	
+	private void registerButtonBg_2(PopupConfirm pc) {
+		pc.setButtonBg(resource.loadImage(PIC_ID_POPUP_BTN_COMFIRM), W_CONFIRM_BTN_CONFIRM,
+				H_CONFIRM_BTN_CONFIRM);
+		pc.setButtonBorder(BORDER_CONFIRM_BTN_CONFIRM);
 		pc.setButtonText(STR_CONFIRM_BTN_TEXT);
 		pc.setButtonNormalTextColor(0XFFFFFF);
 	}
@@ -135,10 +166,23 @@ public class UIResource {
 	private void registerTextBg(PopupConfirm pc) {
 		Image textBg = resource.loadImage(PIC_ID_POPUP_BG);
 		pc.setTextBg(textBg);
-		pc.setTextBgPos(((engine.getScreenWidth()-textBg.getWidth())>>1)-Configurations.Abs_Coords_X, 
-				((engine.getScreenHeight()-textBg.getHeight())>>1)-Configurations.Abs_Coords_Y);
+		pc.setTextBgPos(((engine.getScreenWidth() - textBg.getWidth()) >> 1)
+				- Configurations.Abs_Coords_X,
+				((engine.getScreenHeight() - textBg.getHeight()) >> 1)
+						- Configurations.Abs_Coords_Y);
 		pc.setTextColor(0XFFFFFF);
 		pc.setTextRegion(X_POPUP_TEXT, Y_POPUP_TEXT, W_POPUP_TEXT, H_POPUP_TEXT);
+	}
+	
+	private void registerTextBg_2(PopupConfirm pc) {
+		Image textBg = resource.loadImage(PIC_ID_POPUP_BG_COMFIRM);
+		pc.setTextBg(textBg);
+		pc.setTextBgPos(((engine.getScreenWidth() - textBg.getWidth()) >> 1)
+				- Configurations.Abs_Coords_X,
+				((engine.getScreenHeight() - textBg.getHeight()) >> 1)
+						- Configurations.Abs_Coords_Y);
+		pc.setTextColor(0XFFFFFF);
+		pc.setTextRegion(X_POPUP_TEXT, Y_POPUP_TEXT, W_POPUP_TEXT_CONFIRM, H_POPUP_TEXT_CONFIRM);
 	}
 
 	private void registerDefaultPopupText() {

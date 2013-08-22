@@ -140,16 +140,18 @@ public class PopupConfirm {
 
 		g.drawImage(textBg, textBgX, textBgY, 20);
 		g.setColor(textColor);
-		TextView.showMultiLineText(g, text, 1, textBgX+textOffsetX, textBgY+textOffsetY, textW, textH);
-		
+		TextView.showMultiLineText(g, text, 1, textBgX + textOffsetX, textBgY + textOffsetY, textW,
+				textH);
+
 		Font font = g.getFont();
 		int sx = 0;
-		int sy = textBgY+textOffsetY+textH-btnH;
+		// int sy = textBgY+textOffsetY+textH-btnH;
+		int sy = textBgY + textBg.getHeight() - 55;
 		calcBtnPos(font);
 		for (int i = 0; i < btnText.length; ++i) {
-			sx = textBgX+btnXOffset[i];
-			DrawUtil.drawAdaptiveButton(g, btnBg, i==btnIndex?btnW:0, 0, btnW, btnH, btnBorder, 
-					btnText[i], sx, sy, btnTextColor);
+			sx = textBgX + btnXOffset[i];
+			DrawUtil.drawAdaptiveButton(g, btnBg, i == btnIndex ? btnW : 0, 0, btnW, btnH,
+					btnBorder, btnText[i], sx, sy, btnTextColor);
 			if (btnW == btnBg.getWidth()) {
 				DrawUtil.drawRect(g, sx, sy, btnW, btnH, 2, 0XFFFF00);
 			}

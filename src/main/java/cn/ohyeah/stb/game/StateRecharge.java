@@ -41,12 +41,13 @@ public class StateRecharge {
 	private static final short PIC_ID_RECHARGE0 = NUM_PICS++;
 	private static final short PIC_ID_EXCHANGE0 = NUM_PICS++;
 	private static final short PIC_ID_PASSWORD_BG = NUM_PICS++;
+	private static final short PIC_ID_BAR = NUM_PICS++;
 	
 	private static final String[] imagePaths = {
 		"/business/recharge-bg.jpg",
 		"/business/recharge-title.png",
 		"/business/exchange-title.png",
-		"/business/confirm-bg.jpg",
+		"/common/popup-bg-com.png",
 		"/business/checked.png",
 		"/business/unchecked.png",
 		"/business/ok0.png",
@@ -55,6 +56,7 @@ public class StateRecharge {
 		"/business/recharge0.png",
 		"/business/exchange0.png",
 		"/business/password-bg.png",
+		"/business/bar.png",
 	};
 	
 	private static char[][] inputChars = {
@@ -273,35 +275,31 @@ public class StateRecharge {
 		confirmX -= Configurations.Abs_Coords_X;
 		confirmY -= Configurations.Abs_Coords_Y;
 		
+		confirmY += 30;
 		g.drawImage(bgImg, confirmX, confirmY, 20);
 		
 		if (Configurations.getInstance().isServiceProviderWinside()) {
 			g.setColor(0XFF0000);
 			g.drawString("iTV体验期内订购需正常付费", confirmX+70, confirmY+138, 20);
 		}
-		
-		String productName = engineService.getRechargeCommand()+expentAmount+engineService.getExpendAmountUnit();
-		//String productName = "<<"+engineService.getProductName()+">>"+engineService.getRechargeCommand();
-		Font font = g.getFont();
-		int textDelta = (25-font.getHeight())>>1;
-		int sx = confirmX+170;
-		int sy = confirmY+179+textDelta;
+
+		int sx = confirmX + 30;
+		int sy = confirmY + 20;
 		g.setColor(0XFFFF00);
-		g.drawString(productName, sx, sy, 20);
-		
-		String ss = null;
-		if (curPayType == 0) {
-			ss = rechargeAmount*engineService.getSubscribeCashToAmountRatio()+engineService.getSubscribeAmountUnit();
-		}
-		else {
-			ss = rechargeAmount*engineService.getCashToPointsRatio()+engineService.getPointsUnit();
-		}
-		sy = confirmY+216+textDelta;
-		g.drawString(ss, sx, sy, 20);
-		
+		g.drawString("亲爱的用户，您好：", sx, sy, 20);
+		g.drawString("你选择了充值" + rechargeAmount + "元，将获得" + expentAmount + engineService.getExpendAmountUnit(), sx,
+				sy + 30, 20);
+		Image bar = resource.loadImage(PIC_ID_BAR);
+		g.drawImage(bar, sx, sy + 60, 20);
+		g.drawImage(bar, sx, sy + 90, 20);
+		g.drawString("  产品名称：" + expentAmount + engineService.getExpendAmountUnit(), sx, sy + 60, 20);
+		g.drawString("  产品价格：" + rechargeAmount + "元/次", sx, sy + 90, 20);
+		g.drawString(" 1.该产品按次收费。", sx, sy + 120, 20);
+		g.drawString(" 2.电信账单支付。", sx, sy + 150, 20);
+
 		Image confirmBtn = resource.loadImage(PIC_ID_OK0);
-		sx = confirmX+121;
-		sy = confirmY+253;
+		sx = confirmX + 121;
+		sy = confirmY + bgImg.getHeight() - 35;
 		g.drawImage(confirmBtn, sx, sy, 20);
 		if (confirmIndex == 0) {
 			DrawUtil.drawRect(g, sx, sy, confirmBtn.getWidth(), confirmBtn.getHeight(), 3, 0XFF0000);
@@ -428,8 +426,8 @@ public class StateRecharge {
 			}
 			
 			g.setColor(0XFFFF00);
-			g.drawString(amount+unit, sx+2, sy+textDelta, 20);
-			
+			g.drawString(amount + unit + "人民币", sx + 2, sy + textDelta, 20);
+
 			setExpentAmount(i);
 			
 			ss = expentAmount+engineService.getExpendAmountUnit();

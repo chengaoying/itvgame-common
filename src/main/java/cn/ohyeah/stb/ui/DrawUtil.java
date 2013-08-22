@@ -42,11 +42,11 @@ public class DrawUtil {
 	 * @param y 按钮显示位置
 	 * @param textColor 按钮文字颜色
 	 */
-	public static void drawAdaptiveButton(SGraphics g, Image btnBg, int btnSrcX, int btnSrcY, int btnW, int btnH, 
-			int btnBorder, String text, int x, int y, int textColor) {
-		
-		int btnMidW = btnW-btnBorder-btnBorder;
-		int btnFillW = btnW-btnBorder;
+	public static void drawAdaptiveButton(SGraphics g, Image btnBg, int btnSrcX, int btnSrcY,
+			int btnW, int btnH, int btnBorder, String text, int x, int y, int textColor) {
+
+		int btnMidW = btnW - btnBorder - btnBorder;
+		int btnFillW = btnW - btnBorder;
 		Font font = g.getFont();
 		int textW = font.stringWidth(text);
 		int btnSw = textW+(btnBorder<<1);
@@ -234,7 +234,13 @@ public class DrawUtil {
 		int color = g.getColor();
 		g.setColor(col);
 		g.drawRect(sx, sy, sw, sh);
-		for (int i = 1; i < h/2+1; ++i) {
+		int temp;
+		if (w > h) {
+			temp = h;
+		} else {
+			temp = w;
+		}
+		for (int i = 1; i < temp / 2 + 1; ++i) {
 			++sx;
 			++sy;
 			sw-=2;
