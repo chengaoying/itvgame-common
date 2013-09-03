@@ -531,12 +531,17 @@ public final class ServiceWrapper {
 		}
 		try {
 			PurchaseService purchaseService = new PurchaseService(server);
-			int b = purchaseService.expendShiXian(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
+			/*int b = */purchaseService.expendShiXian(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
 					paramManager.userToken, paramManager.productId, amount, paramManager.gameid,paramManager.feeaccount, paramManager.dwjtvkey
 					,paramManager.vl_zonekey, paramManager.paysubway, paramManager.vl_zonekey);
 			result = purchaseService.getResult();
 			if (result == 0) {
-				engineService.balance = b;
+				if ((engineService.balance-amount) >= 0) {
+					engineService.balance -= amount;
+				}
+				else {
+					engineService.balance = 0;
+				}
 			}
 			else {
 				message = purchaseService.getMessage();
@@ -953,6 +958,15 @@ public final class ServiceWrapper {
 						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.paysubway, 
 						paramManager.gameid, paramManager.vl_zonekey, paramManager.returnurl,paramManager.opcompara,
 						paramManager.opcomtoken,paramManager.appId,password);
+				
+				/**
+				 * 视线充值优惠
+				 */
+				if(amount == 5){
+					b += 5;
+				}else if(amount == 10){
+					b += 15;
+				}
 			}
 			else {
 				b = subscribeService.recharge(paramManager.buyURL, paramManager.accountId, paramManager.accountName, 
