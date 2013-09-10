@@ -468,6 +468,8 @@ public class StateRecharge {
 			}else if(amountList[i] < 10 && amountList[i] >= 5){
 				expentAmount += 5;
 			}
+		}else{
+			expentAmount = amountList[i]*engineService.getRechargeRatio();
 		}
 		return expentAmount;
 	}
