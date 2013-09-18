@@ -952,7 +952,7 @@ public final class ServiceWrapper {
 						paramManager.shengyiCPID, paramManager.shengyiCPPassWord, paramManager.shengyiUserIdType,
 						paramManager.shengyiProductId,password);
 			}else if(Configurations.getInstance().isServiceProviderShiXian()){
-				b = subscribeService.rechargeShiXian(paramManager.buyURL, paramManager.accountId, 
+				b = subscribeService.rechargeShiXian(paramManager.returnurl, paramManager.accountId, 
 						paramManager.accountName, paramManager.userToken, paramManager.productId, 
 						amount, engineService.subProps.getRechargeRatio(), remark, paramManager.checkKey,
 						paramManager.feeaccount, paramManager.dwjtvkey, paramManager.paysubway, 

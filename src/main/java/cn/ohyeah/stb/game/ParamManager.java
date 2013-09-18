@@ -1,5 +1,7 @@
 package cn.ohyeah.stb.game;
 
+import cn.ohyeah.stb.util.ConvertUtil;
+
 /**
  * 参数管理类，加载校验jad参数
  * @author maqian
